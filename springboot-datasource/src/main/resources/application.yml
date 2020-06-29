@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    one:
+      type: com.alibaba.durid.pool.DruidDataSource
+      username: root
+      password: 123456
+      url: jdbc:mysql:///chapter01?serverTimezone=UTC&useUnicode=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    two:
+      type: com.alibaba.durid.pool.DruidDataSource
+      username: root
+      password: 123456
+      url: jdbc:mysql:///chapter02?serverTimezone=UTC&useUnicode=true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.jxkj.model
+  mapper-locations: classpath:com/jxkj/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true

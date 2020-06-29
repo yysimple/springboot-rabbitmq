@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      # uri: mongodb://wcx:123@192.168.109.128:27017/test
+      authentication-database: admin
+      host: 192.168.109.128
+      port: 27017
+      # username: wcx
+      # password: 123
+      database: test

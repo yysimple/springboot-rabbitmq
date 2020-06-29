@@ -1,0 +1,17 @@
+spring:
+  thymeleaf:
+    # 是否开启缓存，默认为true，开发时可以改成false
+    cache: true
+    # 检查模板是否存在
+    check-template: true
+    # 检查模板位置是否存在
+    check-template-location: true
+    # 模板的字符编码
+    encoding: UTF-8
+    # 模板文件的位置
+    prefix: classpath:/templates/
+    # Content-type的配置
+    servlet:
+      content-type: text/html
+    # 文件的后缀
+    suffix: .html

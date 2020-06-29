@@ -1,0 +1,9 @@
+user:
+  name: wdd
+  age: 18
+  hobbies:
+    - playing
+    - coding
+spring:
+  profiles:
+    active: dev

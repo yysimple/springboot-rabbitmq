@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 123456
+    url: jdbc:mysql:///jpa?serverTimezone=UTC&useUnicode=true&useSSL=true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  data:
+    rest:
+      # 每页默认记录数，默认值为 20
+      default-page-size: 5
+      # 分页查询页码参数名，默认值为page
+      page-param-name: page
+      # 分页查询记录数参数名，默认值为size
+      limit-param-name: size
+      # 分页查询排序参数名，默认值为sort
+      sort-param-name: sort
+      # 给所有请求路径都加上前缀
+      base-path: /api
+      # 添加成功时是否返回添加内容
+      return-body-on-create: true
+      # 更新成功时是否返回添加内容
+      return-body-on-update: true

@@ -1,0 +1,18 @@
+server:
+  port: 9002
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///security_authority
+    username: root
+    password: 123456
+mybatis:
+  type-aliases-package: com.jxkj.entity
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.itheima: debug
+rsa:
+  key:
+    pubKeyPath: F:\springboot2\auth_key\id_key_rsa.pub

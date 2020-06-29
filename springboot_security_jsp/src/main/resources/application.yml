@@ -1,0 +1,17 @@
+spring:
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .jsp
+  datasource:
+    url: jdbc:mysql:///security_authority?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+mybatis:
+  type-aliases-package: com.jxkj.entity
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    com.jxkj: debug

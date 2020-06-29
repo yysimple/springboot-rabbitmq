@@ -1,0 +1,6 @@
+spring:
+  security:
+    user:
+      password: 123
+      name: wcx
+      roles: admin

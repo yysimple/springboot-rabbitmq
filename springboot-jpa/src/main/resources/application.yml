@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql:///jpa?serverTimezone=UTC&useUnicode=true&useSSL=true
+  # 配置jpa的相关信息
+  jpa:
+    # 在控制台打印sql语句
+    show-sql: true
+    # 项目启动时，根据实体类更新数据库中的表
+    hibernate:
+      ddl-auto: update
+    # 使用的是mysql数据库
+    database: mysql
+    # 使用的方言
+    properties:
+          hibernate:
+            dialect: org.hibernate.dialect.MySQL57Dialect

@@ -1,0 +1,15 @@
+相关的静态资源配置：
+    springboot对springmvc的配置都在WebMvcAutoConfiguration中，
+    WebMvcAutoConfiguration中有个静态内部类WebMvcAutoConfigurationAdapter
+    实现了WebMvcConfigurer接口
+
+    里面有个addResourcesHandlers就是用来配置静态资源过滤的
+
+------------------------------------------------
+都是在classpath（resources）下：
+    1. META_INF/resources
+    2. resources
+    3. static
+    4. public
+
+通过：http://localhost:8080/2.jpg 就可以看到对应的图片了

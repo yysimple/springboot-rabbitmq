@@ -1,0 +1,8 @@
+1. 关于application.properties的加载顺序：
+    - 在根目录下的config文件夹中的优先级最高
+    - 直接放在根目录下的文件第二
+    - 在resources中config文件下的第三
+    - 在resources根目录下的第四（即默认文件的位置）
+2. 关于yml和properties的顺序
+    - properties的加载优先级高于yml
+    - 若有重复的配置信息，properties里面的会覆盖yml里面的
