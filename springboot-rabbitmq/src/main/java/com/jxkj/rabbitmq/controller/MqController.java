@@ -1,7 +1,9 @@
 package com.jxkj.rabbitmq.controller;
 
 import com.jxkj.rabbitmq.entity.MyRabbitMqUser;
+import com.jxkj.rabbitmq.entity.OrderTicket;
 import com.jxkj.rabbitmq.entity.SysUser;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -35,11 +38,24 @@ public class MqController {
             log.info("消息开始发送 ==> {}", myRabbitMqUser.getUsername());
             /**
              * else {
-                SysUser sysUser = new SysUser(1L + 1, "haha" + i, "123" + i);
-                rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java", sysUser);
-                log.info("消息开始发送 ==> {}", sysUser.getName());
-            }*/
+             SysUser sysUser = new SysUser(1L + 1, "haha" + i, "123" + i);
+             rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java", sysUser);
+             log.info("消息开始发送 ==> {}", sysUser.getName());
+             }*/
         }
         return "ok";
     }
+
+    @GetMapping("/createOrder")
+    public String createOrder() {
+        OrderTicket orderTicket = new OrderTicket();
+        String orderNo = UUID.randomUUID().toString();
+        orderTicket.setOrderNo(orderNo);
+        orderTicket.setProductName("我是" + orderNo + "下的订单");
+        orderTicket.setCreateTime(new Date());
+        orderTicket.setCurrentMils(System.currentTimeMillis());
+        rabbitTemplate.convertAndSend("order-event-exchange", "order.create.order", orderTicket);
+        System.out.println("消息开始发送： ===> " + new Date());
+        return orderNo;
+     }
 }
