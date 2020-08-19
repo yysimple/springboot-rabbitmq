@@ -1,0 +1,42 @@
+package com.jxkj.alipay.controller;
+
+import com.alipay.api.AlipayApiException;
+import com.jxkj.alipay.config.AlipayTemplate;
+import com.jxkj.alipay.vo.PayVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.math.BigDecimal;
+
+/**
+ * 项目: springboot-alipay
+ * <p>
+ * 功能描述:
+ *
+ * @author: WuChengXing
+ * @create: 2020-08-19 02:04
+ **/
+@RestController
+public class HelloProxyerController {
+
+    @Autowired
+    AlipayTemplate alipayTemplate;
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello proxyer!!";
+    }
+
+    @GetMapping(value = "/payOrder", produces = "text/html")
+    public String payOrder(@RequestParam("orderNo") String orderNo) throws AlipayApiException {
+        PayVO payVO = new PayVO();
+        payVO.setOut_trade_no(orderNo);
+        payVO.setBody("测试支付宝是否成功！");
+        payVO.setSubject("测试应用");
+        payVO.setTotal_amount(String.valueOf(new BigDecimal(12.00)));
+        alipayTemplate.pay(payVO);
+        return "success!!";
+    }
+}
