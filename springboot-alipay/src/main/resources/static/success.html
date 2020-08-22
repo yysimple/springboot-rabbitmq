@@ -6,5 +6,10 @@
 </head>
 <body>
     <h1>我是支付宝付款成功的回调页面</h1>
+    <form name="punchout_form" method="post" action="https://openapi.alipaydev.com/gateway.do?charset=utf-8&method=alipay.trade.page.pay&sign=scVlU0NedGf52ryMHq6pcsQB8%2FGdvRJvhZE%2Fw5OqSdEDeGeyTyL3mMVamDnUYi2neQDLlIDnyfEmx1a0vYAMSIZbwMM2U9kRiqw7tt36xcbnX9HRqUeMAInIeabUxV5l%2B3tKtgc14bl%2BBGDk%2BriL4b070Yz9VRXvk6v2SAjTwguZkAR%2BQqRnnJ5msw8MAxD43OTr7VHJ4NIeqhYKUhLfA5XvdY4Hgq6lslYtHwmzL3Z2zJ%2FSTjAvColAat9mEo773O%2Br3lg%2BAWS3CfkCGaeT51BDPUOseROlR2kSJR%2FkoyLpn%2BMWkrKdV6QG9CGmL%2Bh9vUKPb8jiSgMoF3HZGDXYmA%3D%3D&return_url=http%3A%2F%2F123.57.26.161%3A45324%2Falipay-return&notify_url=http%3A%2F%2F123.57.26.161%3A34248%2FaliReturnUrl&version=1.0&app_id=2016092200568607&sign_type=RSA2&timestamp=2020-08-21+00%3A48%3A24&alipay_sdk=alipay-sdk-java-dynamicVersionNo&format=json">
+        <input type="hidden" name="biz_content" value="{&quot;out_trade_no&quot;:&quot;1231654131313&quot;,&quot;total_amount&quot;:&quot;12&quot;,&quot;subject&quot;:&quot;测试应用&quot;,&quot;body&quot;:&quot;测试支付宝是否成功！&quot;,&quot;product_code&quot;:&quot;FAST_INSTANT_TRADE_PAY&quot;}">
+        <input type="submit" value="立即支付" style="display:none" >
+    </form>
+    <script>document.forms[0].submit();</script>
 </body>
 </html>

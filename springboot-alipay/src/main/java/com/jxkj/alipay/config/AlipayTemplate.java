@@ -9,7 +9,6 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-@ConfigurationProperties(prefix = "alipay")
 @Component
 @Data
 public class AlipayTemplate {
@@ -30,9 +29,9 @@ public class AlipayTemplate {
     private  String return_url;*/
 
     // 服务器异步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-    public static String notify_url = "http://123.57.26.161:43863/alipay.trade.wap.pay-JAVA-UTF-8/notify_url.jsp";
+    public static String notify_url = "http://123.57.26.161:34248/aliReturnUrl";
     // 页面跳转同步通知页面路径 需http://或者https://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问 商户可以自定义同步跳转地址
-    public static String return_url = "http://123.57.26.161:43863/alipay.trade.wap.pay-JAVA-UTF-8/return_url.jsp";
+    public static String return_url = "http://123.57.26.161:45324/alipay-return";
 
     // 签名方式
     private  String sign_type = "RSA2";
