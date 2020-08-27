@@ -1,0 +1,27 @@
+spring:
+  redis:
+    url: 182.92.89.118
+    port: 6379
+    password: 970412@wcx.com
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://182.92.89.118:3306/mall_sms
+  application:
+    name: mall-coupon
+
+server:
+  port: 7777
+
+mybatis-plus:
+  type-aliases-package: com.jxkj.usercenter
+  mapper-locations: classpath*:mybatis/mapper/*.xml
+  # mybatis-plus 的全局配置
+  global-config:
+    banner: false
+  # mybatis 原生配置
+  configuration:
+    # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    lazy-loading-enabled: false

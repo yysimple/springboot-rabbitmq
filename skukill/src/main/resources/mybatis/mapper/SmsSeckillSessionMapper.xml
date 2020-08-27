@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxkj.mall.sdkill.mapper.SmsSeckillSessionMapper">
+
+    <select id="getThreeDaySession" resultType="com.jxkj.mall.sdkill.entity.SmsSeckillSession">
+        select * from sms_seckill_session
+        where date_format(start_time, '%Y-%m-%d')
+        between date_format(#{start}, '%Y-%m-%d') and date_format(#{end}, '%Y-%m-%d')
+    </select>
+</mapper>
