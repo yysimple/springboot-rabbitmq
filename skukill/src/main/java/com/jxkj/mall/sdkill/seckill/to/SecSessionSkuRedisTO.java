@@ -1,4 +1,4 @@
-package com.jxkj.mall.sdkill.to;
+package com.jxkj.mall.sdkill.seckill.to;
 
 import com.jxkj.mall.sdkill.entity.SmsGoods;
 import io.swagger.annotations.ApiModelProperty;
