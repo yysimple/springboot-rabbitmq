@@ -309,7 +309,7 @@ public class SecKillServiceImpl implements SecKillService {
                 secKillOrderTO.setPromotionSessionId(secSessionSkuRedisTO.getPromotionSessionId());
                 secKillOrderTO.setUserId(userId);
                 return orderNo;
-            }else {
+            } else {
                 // 购买失败则删除用户信息，让其可再次购买
                 redisTemplate.delete(userKey);
                 return "库存不足！";

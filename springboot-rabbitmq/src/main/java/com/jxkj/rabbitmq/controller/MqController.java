@@ -46,6 +46,22 @@ public class MqController {
         return "ok";
     }
 
+    @GetMapping("/reSend/{num}")
+    public String testReSend(@PathVariable("num") Integer num) {
+        for (int i = 0; i < num; i++) {
+            MyRabbitMqUser myRabbitMqUser = new MyRabbitMqUser(1L + i, "hahah" + i, "123456", 19);
+            rabbitTemplate.convertAndSend("resend-delay-exchange", "resend", myRabbitMqUser, new CorrelationData(UUID.randomUUID().toString()));
+            log.info("消息开始发送 ==> {}", myRabbitMqUser.getUsername());
+            /**
+             * else {
+             SysUser sysUser = new SysUser(1L + 1, "haha" + i, "123" + i);
+             rabbitTemplate.convertAndSend("hello-java-exchange", "hello.java", sysUser);
+             log.info("消息开始发送 ==> {}", sysUser.getName());
+             }*/
+        }
+        return "ok";
+    }
+
     @GetMapping("/createOrder")
     public String createOrder() {
         OrderTicket orderTicket = new OrderTicket();

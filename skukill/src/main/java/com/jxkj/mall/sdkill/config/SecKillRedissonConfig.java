@@ -22,8 +22,8 @@ public class SecKillRedissonConfig {
     RedissonClient redissonClient() throws IOException {
         Config config = new Config();
         config.useSingleServer()
-                .setAddress("redis://182.92.89.118:6379")
-                .setPassword("970412@wcx.com");
+                .setAddress("redis://192.168.109.135:6379")
+                .setPassword("123456");
         return Redisson.create(config);
     }
 }

@@ -47,7 +47,7 @@ public class MyRabbitConfig {
              */
             @Override
             public void confirm(CorrelationData correlationData, boolean ack, String s) {
-                System.out.println("correlationData = " + correlationData + ", ack = " + ack + ", s = " + s);
+                System.out.println("投递成功 ==》 correlationData = " + correlationData + ", ack = " + ack + ", s = " + s);
             }
         });
 
@@ -65,7 +65,7 @@ public class MyRabbitConfig {
              */
             @Override
             public void returnedMessage(Message message, int code, String text, String exchange, String routeKey) {
-                System.out.println("message = " + message + ", code = " + code + ", text = " + text + ", exchange = " + exchange + ", routeKey = " + routeKey);
+                System.out.println("投递失败 ==》 message = " + message + ", code = " + code + ", text = " + text + ", exchange = " + exchange + ", routeKey = " + routeKey);
             }
         });
     }

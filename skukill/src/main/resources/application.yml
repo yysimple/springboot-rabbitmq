@@ -1,13 +1,13 @@
 spring:
   redis:
-    url: 182.92.89.118
-    port: 6379
-    password: 970412@wcx.com
-  datasource:
-    username: root
     password: 123456
+    host: 192.168.109.135
+    port: 6379
+  datasource:
+    username: mall_sms
+    password: mall_sms
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://182.92.89.118:3306/mall_sms
+    url: jdbc:mysql://192.168.109.135:3306/mall_sms
   application:
     name: mall-coupon
 

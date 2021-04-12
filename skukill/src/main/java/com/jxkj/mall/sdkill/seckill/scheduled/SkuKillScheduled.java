@@ -38,7 +38,7 @@ public class SkuKillScheduled {
     /**
      * 每三天上架一次
      */
-    @Scheduled(cron = "*/10 * * * * *")
+    // @Scheduled(cron = "0 0 3 * * ?")
     @Async
     public void uploadSeckillSkuLateThreeDays() {
         log.info("秒杀上架开始 === > {}", new Date());
