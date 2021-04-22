@@ -51,6 +51,8 @@ public class MqController {
         for (int i = 0; i < num; i++) {
             MyRabbitMqUser myRabbitMqUser = new MyRabbitMqUser(1L + i, "hahah" + i, "123456", 19);
             rabbitTemplate.convertAndSend("resend-delay-exchange", "resend", myRabbitMqUser, new CorrelationData(UUID.randomUUID().toString()));
+            // 这个就是确认是否发送成功
+            boolean b = rabbitTemplate.waitForConfirms(1000);
             log.info("消息开始发送 ==> {}", myRabbitMqUser.getUsername());
             /**
              * else {

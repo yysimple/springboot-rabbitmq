@@ -47,6 +47,7 @@ public class MyRabbitConfig {
              */
             @Override
             public void confirm(CorrelationData correlationData, boolean ack, String s) {
+                // todo 这里可以进行持久化操作
                 System.out.println("投递成功 ==》 correlationData = " + correlationData + ", ack = " + ack + ", s = " + s);
             }
         });
